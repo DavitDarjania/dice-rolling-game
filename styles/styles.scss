@@ -1,0 +1,143 @@
+@import './variables.scss';
+
+body{
+    background-color: rgb(53, 13, 0);
+    display: flex;
+    height: 100vh;
+    padding-bottom: 20vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/A-panoramic-view-of-a-planetary-nebula-with-intricate-patterns-and-vibrant-colors-set-against-the-darkness-of-space-4K-background.jpg);
+    background-size: cover;
+}
+.menu-modal{
+    width: 380px;
+    aspect-ratio: 1/0.42;
+    background-color: rgb(174, 135, 98);
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 30px;
+    overflow: hidden;
+    display: none;
+    .row{
+        img{
+            width: 40%;
+            cursor: pointer;
+        }
+        .icon_header{
+            font-family: $buttonFont;
+            font-size: 1rem;
+            color: rgb(60, 26, 26);
+        }
+    }
+    .menu_header{
+        padding: 1vh 0;
+        background-color: rgb(60, 26, 26);
+        color: white;
+        font-family: $numberFont;
+    }
+}
+.game-section{
+    padding: 5vh 0;
+    background-color: rgb(50, 50, 50);
+    border-radius: 50px;
+    box-shadow: inset 0 0 20px rgb(255, 104, 53);
+}
+.game-section-after::after{
+    content: "";
+    display: none;
+}
+.game-section-after.show-after::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.485);
+    top: 0;
+    border-radius: 50px;
+}
+.game-header{
+    font-family: $gameFont;
+    font-size: 3rem;
+    @media screen and (min-width:470px){
+        padding: 0 10vw;
+    }
+}
+.menu-button{
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: -3px 5px 5px rgb(255, 53, 53);
+    background-color: rgb(47, 13, 0);
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    h4{
+        font-family: $buttonFont;
+        color: rgb(255, 53, 53);
+    }
+    &:active{
+        transform: scale(0.95);
+        background-color: rgb(103, 29, 0);
+    }
+}
+.play-game{
+    .play_text{
+        font-family: $buttonFont;
+        padding: 10px 15px;
+        color: orange;
+        background-color: rgb(91, 32, 2);
+        font-size: 2.5rem;
+        border-radius: 20px;
+        box-shadow: inset 0 0 10px rgb(255, 53, 53);
+        cursor: pointer;
+    }
+    .play_text:active{
+        background-color: rgb(144, 48, 0);
+        transform: scale(0.95);
+    }
+}
+.announcment-box{
+    height: 50px;
+    h2{
+        font-family: $buttonFont;
+        color: yellow;
+    }
+}
+.dice-section{
+    .row{
+        img{
+            width: 60%;
+        }
+        .my-dice-box, .computer-dice-box{
+            padding: 3vh 0;
+            .dice-header{
+                font-family: $gameFont;
+            }
+            [class^="counter-box"]{
+                background-color: rgb(53, 53, 53);
+                width: 50px;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.745);
+                h5{
+                    font-family: $numberFont;
+                    color: white;
+                    font-size: 2rem;
+                }
+                transform: translate(0,-20px);
+            }
+            .counter-box1{
+                top: 0;
+                left: 5%;
+            }
+            .counter-box2{
+                top: 0;
+                right: 5%;
+            }
+        }
+    }
+}

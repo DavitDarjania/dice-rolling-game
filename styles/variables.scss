@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+$gameFont: "Sixtyfour Convergence", sans-serif;
+$buttonFont: "Bungee Shade", sans-serif;
+$numberFont: "Tilt Prism", sans-serif;
+
+@media screen and (max-width:575px){
+    .menu-button{
+        right: 5% !important;
+    }
+}
