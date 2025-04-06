@@ -39,16 +39,16 @@ const CompPointCounter = document.querySelector('#computerCounter')
 
 const announcmentText = document.querySelector('.announcment_text')
 
-menuButton.addEventListener('click', () => {
+menuButton.addEventListener('click', async () => {
     menuSound.currentTime = 0
-    menuSound.play()
+    await menuSound.play()
     menuModal.classList.add('d-block')
     menuAfter.classList.add('show-after')
 })
 
-regulateContinue.addEventListener('click', () => {
+regulateContinue.addEventListener('click', async () => {
     mouseClick.currentTime = 0
-    mouseClick.play()
+    await mouseClick.play()
     menuAfter.classList.remove('show-after')
     menuModal.classList.remove('d-block')
 })
@@ -61,9 +61,9 @@ regulateRestart.addEventListener('click', () =>{
     })
 })
 
-regulateSound.addEventListener('click', () => {
+regulateSound.addEventListener('click', async () => {
     mouseClick.currentTime = 0
-    mouseClick.play()
+    await mouseClick.play()
     if(regulateSound.classList.contains('active')){
         regulateSound.classList.remove('active')
         winSound.volume = 0
@@ -91,10 +91,10 @@ regulateSound.addEventListener('click', () => {
 let diceArray = [diceOne, diceTwo, diceThree, diceFour, diceFive, diceSix]
 playButton.addEventListener('click', async () =>{
     clickSound.currentTime = 0
-    clickSound.play()
+    await clickSound.play()
     let myDiceResult = await rollDice(myDice)
     let CompDiceResult = await rollDice(computerDice)
-    let winningResult = whoWon(myDiceResult, CompDiceResult)
+    let winningResult = await whoWon(myDiceResult, CompDiceResult)
     console.log(winningResult)
     winnerPoint(winningResult)
     announce(winningResult)
@@ -108,7 +108,7 @@ function sleep(ms){
 async function rollDice(element){
     let currentImg;
     rollingSound.currentTime = 0
-    rollingSound.play()
+    await rollingSound.play()
     for(let i = 0; i < 15; i++){
         currentImg = element.querySelector('img')
 
@@ -119,16 +119,16 @@ async function rollDice(element){
     return currentImg
 }
 
-function whoWon(myDice, CompDice){
+async function whoWon(myDice, CompDice){
     let diceUrlArr = ['e', '2', '3', '4', '5', '6']
     if((diceUrlArr.indexOf(myDice.src.at(-5)) + 1) > diceUrlArr.indexOf(CompDice.src.at(-5)) + 1){
         winSound.currentTime = 0
-        winSound.play()
+        await winSound.play()
         return "You Won!"
     }
     else if((diceUrlArr.indexOf(myDice.src.at(-5)) + 1) < diceUrlArr.indexOf(CompDice.src.at(-5)) + 1){
         loseSound.currentTime = 0
-        loseSound.play()
+        await loseSound.play()
         return "Computer Won!"
     }
     else{
