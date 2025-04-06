@@ -120,13 +120,13 @@ async function rollDice(element){
 }
 
 function whoWon(myDice, CompDice){
-    let diceUrlArr = ['http://127.0.0.1:5500/images/dice.png', 'http://127.0.0.1:5500/images/dice-2.png', 'http://127.0.0.1:5500/images/dice-3.png', 'http://127.0.0.1:5500/images/dice-4.png', 'http://127.0.0.1:5500/images/dice-5.png', 'http://127.0.0.1:5500/images/dice-6.png']
-    if((diceUrlArr.indexOf(myDice.src) + 1) > diceUrlArr.indexOf(CompDice.src) + 1){
+    let diceUrlArr = ['e', '2', '3', '4', '5', '6']
+    if((diceUrlArr.indexOf(myDice.src.at(-5)) + 1) > diceUrlArr.indexOf(CompDice.src.at(-5)) + 1){
         winSound.currentTime = 0
         winSound.play()
         return "You Won!"
     }
-    else if((diceUrlArr.indexOf(myDice.src) + 1) < diceUrlArr.indexOf(CompDice.src) + 1){
+    else if((diceUrlArr.indexOf(myDice.src.at(-5)) + 1) < diceUrlArr.indexOf(CompDice.src.at(-5)) + 1){
         loseSound.currentTime = 0
         loseSound.play()
         return "Computer Won!"
