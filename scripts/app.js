@@ -39,6 +39,13 @@ const CompPointCounter = document.querySelector('#computerCounter')
 
 const announcmentText = document.querySelector('.announcment_text')
 
+winSound.load()
+loseSound.load()
+menuSound.load()
+clickSound.load()
+rollingSound.load()
+mouseClick.load()
+
 menuButton.addEventListener('click', async () => {
     menuSound.currentTime = 0
     await menuSound.play()
